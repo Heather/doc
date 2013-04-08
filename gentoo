@@ -1,0 +1,3 @@
+#Rebuild packages starting with foo:
+
+emerge -1av $(qlist -IC ^foo)

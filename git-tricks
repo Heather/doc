@@ -1,0 +1,13 @@
+#Clone to current folder
+git init
+git remote add origin ...
+git fetch
+git branch master origin/master
+git checkout master
+
+#History clean
+git checkout --orphan temp $1
+git commit -m "Truncated history"
+git rebase --onto temp $1 origin/master
+git checkout master
+git branch -D temp

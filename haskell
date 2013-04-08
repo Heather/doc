@@ -1,0 +1,5 @@
+#to look up functions and types and stuff in all the installed haskell packages
+USE=fetchdb-ghc localdb emerge dev-haskell/hoogle; then run /usr/sbin/hoogle-build-localdb
+
+#that is sure to work with anything that looks up stuff in hoogle, 
+#then you need to run: /usr/sbin/hoogle-build-localdb after emerging haskell packages
