@@ -8,4 +8,4 @@ sudo emerge -avu1 $(qlist -IvC /qt- | grep 4. | sed s/-4.*//)
 
 #Mask qt 5.5
 
- qlist -IvC /qt | sed -e 's/^/>/'
+qlist -IvC /qt | sed -e 's/^/>/'
