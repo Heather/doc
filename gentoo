@@ -1,11 +1,11 @@
-#Rebuild packages starting with foo:
+# Rebuild packages starting with foo:
 
 emerge -1av $(qlist -IC ^foo)
 
-#Update older Qt
+# Update older Qt
 
 sudo emerge -avu1 $(qlist -IvC /qt- | grep 4. | sed s/-4.*//)
 
-#Mask qt 5.5
+# Mask qt 5.5
 
 qlist -IvC /qt | sed -e 's/^/>/'
