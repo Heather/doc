@@ -1,0 +1,4 @@
+#Area51
+portsnap fetch update;
+cd /usr/local/ports/plasma5; svn up; Tools/scripts/kdemerge -as /usr/ports;
+cd /usr/local/ports/area51; svn up; Tools/scripts/kdemerge -qs /usr/ports;
