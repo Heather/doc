@@ -1,0 +1,16 @@
+[Unit]
+Description=fbcondecor1
+After=network.target
+After=dbus.service
+After=local-fs.target
+After=NetworkManager.service
+
+[Service]
+Type=simple
+RemainAfterExit=yes
+ExecStart=/usr/bin/splash_manager -c set --theme=emerge-world --tty=1
+TimeoutStopSec=1
+
+[Install]
+WantedBy=multi-user.target
+
