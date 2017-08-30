@@ -1,0 +1,40 @@
+input {
+    tcp {
+        mode => "server"
+        port => 678
+        codec => multiline {
+          pattern => '^\{'
+          negate => true
+          what => previous
+        }
+    }
+}
+filter 
+{
+    mutate
+    {
+        replace => [ "message", "%{message}" ]
+        gsub => [ 'message','[\\]','/' ]
+    }
+    mutate
+    {
+        gsub => [ 'message','\n','\\n' ]
+    }
+    mutate
+    {
+        gsub => [ 'message','}\\n','}' ]
+    }
+    if [message] =~ /^{.*}/
+    {
+        json { source => message }
+    }
+}
+output {
+    elasticsearch {
+        hosts => ["192.168.3.149:9200"]
+	sniffing => false
+	user => "elastic"
+	password => "prilepin"
+    }
+}
+
