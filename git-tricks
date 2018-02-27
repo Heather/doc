@@ -14,6 +14,8 @@ git branch -D temp
 
 #clean all tags
 git tag -l | xargs -n 1 git push --delete origin
+#or
+git ls-remote --tags --refs origin | cut -f2 | xargs git push origin --delete
 
 #clean all branches except one
 git branch | grep -v "master" | xargs git branch -D
