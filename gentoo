@@ -2,9 +2,8 @@
 
 emerge -1av $(qlist -IC ^foo)
 
-# Update older Qt
-
-sudo emerge -avu1 $(qlist -IvC /qt- | grep 4. | sed s/-4.*//)
+# Update Qt
+emerge -1va $(qlist -CI dev-qt)
 
 # Mask qt 5.5
 
